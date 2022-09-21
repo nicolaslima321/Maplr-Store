@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  maplr-store-client:
+    tty: true
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: make startup
+    working_dir: /maplr-store-client
+    ports:
+      - 3005:3005
+    volumes:
+      - ./:/maplr-store-client
+      - maplr-store-client-node-modules:/./node_modules
+
+volumes:
+  maplr-store-client-node-modules:
