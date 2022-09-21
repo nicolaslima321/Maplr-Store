@@ -8,12 +8,12 @@ services:
       context: ./
       dockerfile: Dockerfile
     command: make startup
-    working_dir: /maplr-store-client
+    working_dir: /usr/app
     ports:
       - 3005:3005
     volumes:
-      - ./:/maplr-store-client
-      - maplr-store-client-node-modules:/./node_modules
+      - ./:/usr/app
+      - maplr-store-client-node-modules:/./usr/app/node_modules
 
 volumes:
   maplr-store-client-node-modules:

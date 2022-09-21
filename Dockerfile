@@ -1,3 +1,6 @@
-FROM node:16.17.0
+FROM node:16.11.0
 
-RUN npm install --location=global npm@8.11
+WORKDIR /usr/app
+COPY ./ /usr/app
+
+RUN npm install
