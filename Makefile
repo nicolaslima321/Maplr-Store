@@ -3,4 +3,4 @@ export
 
 startup:
 	npm install
-	npm run dev
+	HOST=0 PORT=3005 npm run dev
