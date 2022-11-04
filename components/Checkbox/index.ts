@@ -1,0 +1,1 @@
+export { IzgCheckbox } from './IzgCheckbox';

@@ -1,0 +1,1 @@
+export { IzgRadio } from './IzgRadio';

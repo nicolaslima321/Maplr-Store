@@ -1,0 +1,1 @@
+export { IzgCard } from './IzgCard';

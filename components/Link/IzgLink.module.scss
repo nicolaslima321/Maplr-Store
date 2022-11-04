@@ -1,0 +1,11 @@
+.izg-link {
+  color: $primary-color-400;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color-100;
+    text-decoration: underline;
+    transition: .2s;
+  }
+}
