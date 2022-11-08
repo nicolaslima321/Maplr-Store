@@ -1,8 +1,10 @@
 import React from 'react';
-import { IzgButton } from '~/components';
+import { Button } from '@mui/material';
 
 export default function Home() {
   return (
-    <IzgButton label="teste" />
+    <Button>
+      oi
+    </ Button>
   )
 }
