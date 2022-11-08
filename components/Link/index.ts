@@ -1,1 +1,0 @@
-export { IzgLink } from './IzgLink';

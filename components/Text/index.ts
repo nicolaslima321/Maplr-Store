@@ -1,1 +1,0 @@
-export { IzgText } from './IzgText';

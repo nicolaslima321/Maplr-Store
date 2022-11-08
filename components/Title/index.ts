@@ -1,1 +1,0 @@
-export { IzgTitle } from './IzgTitle';
