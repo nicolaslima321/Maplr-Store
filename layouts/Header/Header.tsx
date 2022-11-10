@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from '~/layouts/Header/Header.module.scss';
 
+import { Paper } from '@mui/material';
+
 import Image from 'next/image';
+
+import { ProfileIcon } from '~/components/ProfileIcon';
 
 export const Header: React.FC<{}> = () => {
   const imageProps = {
@@ -12,12 +16,15 @@ export const Header: React.FC<{}> = () => {
   };
 
   return (
-    <div
+    <Paper
       className={styles['header']}
+      elevation={1}
     >
       <Image {...imageProps}/>
 
       foo bar
-    </div>
+
+      <ProfileIcon />
+    </Paper>
   );
 };

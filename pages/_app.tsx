@@ -1,13 +1,37 @@
 import '../styles/globals.css';
+import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
 
+import { RootState } from '~/store';
+
 import { Header } from '~/layouts/Header';
+import UserService from '~/services/UserService';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [rootState, setRootState] = useState(RootState.defaultValue.state);
+
+  useEffect(() => {
+    if (UserService.hasCachedUser()) {
+      const cachedUser = UserService.loadCachedUser();
+      setRootState({
+        authenticated: true,
+        user: { ...cachedUser, orders: [] },
+      });
+    }
+  });
+
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <RootState.Context.Provider
+        value={[rootState, setRootState]}
+      >
+        <Header />
+        <Component {...pageProps} />
+
+        <a>
+          { JSON.stringify(rootState) }
+        </a>
+      </RootState.Context.Provider>
     </>
   );
 }
