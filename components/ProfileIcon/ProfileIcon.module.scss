@@ -1,7 +1,5 @@
-.header {
-  align-items: center;
-  justify-content: space-between;
-  display: flex;
-  padding: $spacing-medium;
-  width: 100%;
+.profile-icon {
+  &:hover {
+    cursor: pointer;
+  }
 }

@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
 
 import { RootState } from '~/store';
@@ -10,15 +10,18 @@ import UserService from '~/services/UserService';
 export default function App({ Component, pageProps }: AppProps) {
   const [rootState, setRootState] = useState(RootState.defaultValue.state);
 
+  const fetchUserResources = useCallback(async () => {
+    const user = await UserService.loadResources();
+
+    setRootState({
+      authenticated: true,
+      user: { ...user, orders: [] },
+    });
+  }, []);
+
   useEffect(() => {
-    if (UserService.hasCachedUser()) {
-      const cachedUser = UserService.loadCachedUser();
-      setRootState({
-        authenticated: true,
-        user: { ...cachedUser, orders: [] },
-      });
-    }
-  });
+    fetchUserResources();
+  }, [fetchUserResources]);
 
   return (
     <>

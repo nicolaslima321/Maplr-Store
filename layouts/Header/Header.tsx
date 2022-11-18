@@ -22,8 +22,6 @@ export const Header: React.FC<{}> = () => {
     >
       <Image {...imageProps}/>
 
-      foo bar
-
       <ProfileIcon />
     </Paper>
   );
